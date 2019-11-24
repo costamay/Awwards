@@ -27,8 +27,13 @@ class Post(models.Model):
     link = models.URLField(max_length=250)
     country = models.CharField(max_length=50)
 
+    
+
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ['-date_posted']
 
     def save_post(self):
         self.save()
