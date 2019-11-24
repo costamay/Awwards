@@ -1,0 +1,26 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+    <div class="row">
+           
+            
+        <div class="col-md-3 mx-auto" id="formm">
+                <h4 class="text-center">Login </h4>
+                <form action="/accounts/login/" method="POST"  >
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-sm" value="Login In">
+                    </div>
+                    <div class="form-group">
+                            <p class="log forgot">You don't have an account? <a href="/accounts/register/">Sign Up</a></p>
+                        </div>
+                    <input type="hidden" name="next" value="{{next}}">
+                </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+​
+{% endblock %}
