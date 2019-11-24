@@ -27,15 +27,17 @@ def profile(request, user_id=None):
 
 @login_required(login_url='/accounts/login')
 def updateprofile(request):
-	if request.method == 'POST':
-		form = ProfileForm(request.POST,request.FILES, instance=request.user.profile)
-		if form.is_valid():
-			form.save()
-			return redirect('profile')
-
-	else:
-			form = ProfileForm()
-	return render(request, 'projects/profile_update.html',{"form":form })
+    current_user = request.user
+    if request.method == 'POST':
+        form = ProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            add = form.save(commit=False)
+            add.user = current_user
+            add.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm()
+    return render(request, 'projects/profile_update.html',{"form":form })
 
 @login_required(login_url='/accounts/login/')
 def new_post(request):
