@@ -1,42 +1,49 @@
 {% load bootstrap3 %}
-{% load staticfiles %}
+{% load staticfiles%}
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    {% block styles %}
- 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <meta charset="utf-8">
+  <link rel="icon" href="/static/images/android-icon-96x96.png" />
+  {% if title %}
+  <title>Awwards - {{title}}</title>
+  {% else %}
+  <title>Awwards </title>
+  {% endif %}
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  {% endblock %}
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
-        {% bootstrap_css %}
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    {% endblock %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <!-- fonts -->
+  <link rel="icon" href="https://pbs.twimg.com/profile_images/1113365621125931009/LxiesfiT_400x400.png" type="image">
 </head>
+
 <body>
-        {% include "projects/navbar.html" %}
-{% block content%}
+  {% include "projects/navbar.html" %}
+  <div>
+    {% block content %}
 
-
-{% endblock%}
-
-{% block scripts %}
-    
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+    {%endblock%}
+    {% include "projects/footer.html" %}
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
     {% bootstrap_javascript %}
-{% endblock%}
-    
+    {% endblock %}
+  </div>
+
 </body>
+
 </html>
