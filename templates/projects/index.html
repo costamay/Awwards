@@ -1,26 +1,35 @@
 {% extends 'projects/base.html' %}
 {% load static %}
+{% load ratings %}
+{% block styles %}
+{{block.super}}
+<link href="https://fonts.googleapis.com/css?family=Merienda+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Carter+One|Merienda+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Carter+One|Merienda|Merienda+One&display=swap" rel="stylesheet">
+{% endblock%}
 {% block content %}
 {{block.super}}
     <link rel="stylesheet" href="{%   static 'star-ratings/css/star-ratings.css' %}">
+    
+
 
 <div class="btn1 btn container-fluid" style="background-image: url(/static/img/number1.jpeg)">
     <div class="header" style="height: 80vh; font-family: 'Encode Sans Expanded', sans-serif;">
         <div class="container" style="color:white;">
             <div class="row" style="padding-top:50px;">
-                <div class="col-md-4">
-                    <strong>Site of the day</strong> {{date|date:"F d, Y"}}
+                <div class="col-md-4" style="font-size: 20px;">
+                    <strong><cite>Site of the day</strong> {{date|date:"F d, Y"}}</cite>
                 </div>
                 <div class="col-md-4"></div>
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <a class="btn" href="" style="color:white;">Collect</a>
-                </div>
+                </div> -->
             </div>
             <div style="text-align:center; font-size: 70px; padding-top:30px; letter-spacing: 1px;">
-                <p>digitaldesigner-cool</p>
+                <p style="font-family: 'Carter One', cursive;" class="blog">THE BLOGGER</p>
             </div>
-            <div style="text-align:center;">
-                <p>BY <strong style="color:#49c5b6;">EID STARNLEY</strong> FROM KENYA WITH <strong>7.35</strong></p>
+            <div style="text-align:center; font-size: 20px;">
+                <p class="" style="font-family: 'Merienda', cursive;">BY <strong style="color:#49c5b6;"  class="mr-3">Titus Opiyo</strong > FROM KENYA WITH <strong class="ml-3">7.35</strong></p>
             </div>
             <div style="height:230px;">
 
@@ -28,7 +37,7 @@
             <div>
                 <div id="box" class="col-md-4">
                     <button class="btn" style=" border-radius: 5em; background-color: #49c5b6; border:none; padding: 2px; width: 80px;"><a
-                            target="blank" style="color: white; text-decoration:none;" href="https://findmovie1.herokuapp.com/">Visit</a></button>
+                            target="blank" style="color: white; text-decoration:none;" href="https://theblogger001.herokuapp.com/">Visit</a></button>
                     <button class="btn" style="color: white; border-radius: 5em; background-color: transparent; border:1px solid #49c5b6; padding: 2px; width: 80px;">
                         likes </button>
                     <button class="btn" style="color: white; border-radius: 5em; background-color: transparent; border:1px solid white; padding: 2px; width: 80px;">Collect</button>
@@ -44,8 +53,11 @@
 
 <div class="jumbotron">
     <div class="container-fluid" style="margin-bottom: 10px;  padding-left:55px; padding-right:55px; font-family: 'Raleway', sans-serif;">
-        <div class="" style=" padding-bottom:20px;">
+        <!-- <div class="" style=" padding-bottom:20px;">
             <h5><strong>Nominees</strong> We need your vote!</h5>
+        </div> -->
+        <div>
+            <h2 class="text-center text-danger" style="font-family:'Merienda One', cursive;">POSTED PROJECTS</h2>
         </div>
         <div class="row">
             {% for post in posts %}
@@ -58,16 +70,16 @@
                     <p><strong>{{post.sitename}}</strong></p>
                     <p class="size">From {{post.country}} &nbsp; {{post.post_date}}</p>
 
-                    {% load ratings %}
+                    
                     {% ratings post %}
                 
                     <div class="text2">
-                        <a target="blank" href="{{post.url}}" style="color:black; text-decoration:none;"><strong>Visit</strong>
+                        <a target="_blank" href="{{post.link}}" style="color:black; text-decoration:none;"><strong>Visit</strong>
                         </a>
                     </div>
                 </div>
                 <div class="card-footer" style="background-color:white;">
-                    <p>By <strong>{{post.user}}</strong></p>
+                    <p><cite>By <strong>{{post.user}}</strong></cite></p>
                 </div>
             </div>
             {% endfor %}
