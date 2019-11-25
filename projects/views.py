@@ -59,7 +59,7 @@ def vote(request,post_id):
         post = Post.objects.get(id = post_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"vote.html", {"post":post})
+    return render(request,"projects/vote.html", {"post":post})
 
 def search_results(request):
 
