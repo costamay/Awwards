@@ -13,7 +13,7 @@ def index(request):
     posts = Post.objects.all()
     return render(request, 'projects/index.html', {"date":date, "posts":posts })
 
-@login_required(login_url='/accounts/login')
+@login_required(login_url='/accounts/login/?next=/')
 def profile(request):
     current_user = request.user
     # if user_id ==None:
@@ -26,7 +26,7 @@ def profile(request):
 
     return render(request, 'projects/profile.html', locals())
 
-@login_required(login_url='/accounts/login')
+@login_required(login_url='/accounts/login/?next=/')
 def updateprofile(request):
     current_user = request.user
     if request.method == 'POST':
@@ -40,7 +40,7 @@ def updateprofile(request):
         form = ProfileForm()
     return render(request, 'projects/profile_update.html',{"form":form })
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='/accounts/login/?next=/')
 def new_post(request):
         current_user = request.user
         if request.method == 'POST':
@@ -54,7 +54,7 @@ def new_post(request):
                 form = PostForm()
                 return render(request,'projects/new_post.html', {"form":form})
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='/accounts/login/?next=/')
 def vote(request,post_id):
     try:
         post = Post.objects.get(id = post_id)
