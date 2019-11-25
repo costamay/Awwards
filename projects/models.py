@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime as dt
+from django.db.models import Q
 
 
 class Profile(models.Model):
@@ -17,6 +18,19 @@ class Profile(models.Model):
 
     def delete_profile(self):
         self.delete()
+
+    @classmethod
+    def update_bio(cls,id, bio):
+        update_profile = cls.objects.filter(id = id).update(bio = bio)
+        return update_profile
+
+    @classmethod
+    def get_all_profiles(cls):
+        profile = Profile.objects.all()
+        return profile
+    @classmethod
+    def search_user(cls,user):
+        return cls.objects.filter(user__username__icontains=user).all()
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
@@ -40,4 +54,9 @@ class Post(models.Model):
 
     def delete_post(self):
         self.delete()
+
+    @classmethod
+    def search(cls,searchterm):
+        search = Post.objects.filter(Q(title__icontains=searchterm)|Q(description__icontains=searchterm)|Q(country__icontains=searchterm))
+        return search
 
