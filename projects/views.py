@@ -10,8 +10,8 @@ import datetime as dt
 from . forms import ProfileForm, PostForm
 def index(request):
     date =dt.date.today()
-    post = Post.objects.all()
-    return render(request, 'projects/index.html')
+    posts = Post.objects.all()
+    return render(request, 'projects/index.html', {"date":date, "posts":posts })
 
 @login_required(login_url='/accounts/login')
 def profile(request, user_id=None):
