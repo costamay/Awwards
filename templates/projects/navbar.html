@@ -19,23 +19,7 @@
                         <li class="dropdown-divider"></li>
                         <a href="/">Home</a>
                         <li class="dropdown-divider"></li>
-                        <a href="#">Winners</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">Nominees</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">Collections</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">Professional directory</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">Jobs & Talent</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">Blog</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">eBooks & Publications</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">About Us</a>
-                        <li class="dropdown-divider"></li>
-                        <a href="#">Conferences</a>
+                        
                         <p style="margin-left:30px;font-size:12px; color:grey;">New York/ 15-16 November 2018 <br> Amsterdam /14-15 February 2019 </p>
                     </div>
 
@@ -46,7 +30,7 @@
             </div>
             <div class="col-md-1" style="padding-top:10px;">
                 <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
-                    <input type="text" class="form-control my-2 my-sm-0 search-input" name="profile" placeholder="Search.." id="search">
+                    <input type="text" class="form-control my-2 my-sm-0 search-input" name="post" placeholder="Search by title.." id="search">
                 </form>
             </div>
             <div class="col-md-8" style=" padding-top:5px;text-align:center;font-family: 'Comfortaa', cursive; letter-spacing:2px;">
@@ -60,32 +44,26 @@
                                 <a href="" style="font-size:13px; color:black; text-decoration: none;">{{ user.username }}</a>
                             </div>
                             <div class="col-md-6">
-                                <!-- {% if user.is_authenticated %} -->
+                                {% if user.is_authenticated %}
                                 <div class="dropdown">
                                     <a class="btn btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false"><span style="cursor:pointer">&#9776;</span>
                                     </a>
                                     <div class="dropdown-menu" style="width:300px;">
-                                        <a class="dropdown-item" href="{%url 'profile' user_id%}">Profile</a>
+                                        <a class="dropdown-item" href="{%url 'profile'%}">Profile</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Activity</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Collections</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Notifications</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Settings</a>
-                                        <div class="dropdown-divider"></div>
+                                        
+                                        
                                         <a class="dropdown-item" href="/logout">Logout <img style="width: 20px; float: right;"
                                                 src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- {% else %}
+                            {% else %}
 
                             <a class='btn btn-default' href="/accounts/login">Login</a>
 
-                            {% endif %} -->
+                            {% endif %}
                         </div>
                     </div>
                 </div>
