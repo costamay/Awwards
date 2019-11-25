@@ -1,12 +1,13 @@
 
-{%extends 'projects/base.html'%}
+{%extends 'registration/base.html'%}
 {% load bootstrap3 %}
 {% load staticfiles %}
 {% block content %}
+<section class="me">
 <div class="container">
   <div class="row">
    
-    <div class="col-md-4 top-margin mx-auto">
+    <div class="col-md-4 top-margin mx-auto bg-light">
         {% if form.errors %}
         <p>Some information may be incorrect</p>
     {% endif %}
@@ -31,5 +32,6 @@
     </div>
   </div>
 </div>
+</section>
 ​
 {% endblock %}

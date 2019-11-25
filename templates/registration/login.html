@@ -1,12 +1,13 @@
-{%extends 'projects/base.html'%}
+{%extends 'registration/base.html'%}
 {% load bootstrap3 %}
 {% load staticfiles %}
 {% block content %}
+<section class="me">
 <div class="container">
     <div class="row">
            
             
-        <div class="col-md-3 mx-auto" id="formm">
+        <div class="col-md-3 mx-auto text-light" id="formm">
                 <h4 class="text-center">Login </h4>
                 <form action="/accounts/login/?next=/" method="POST"  >
                     {% csrf_token %}
@@ -23,5 +24,5 @@
         <div class="col-md-3"></div>
     </div>
 </div>
-​
+​</section>
 {% endblock %}
