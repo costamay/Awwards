@@ -14,13 +14,14 @@ def index(request):
     return render(request, 'projects/index.html', {"date":date, "posts":posts })
 
 @login_required(login_url='/accounts/login')
-def profile(request, user_id=None):
-    
-    if user_id ==None:
-        user_id=request.user.id
-    current_user = User.objects.get(id = user_id)
-    user=current_user
-    profile = Profile.objects.filter(user=current_user)
+def profile(request):
+    current_user = request.user
+    # if user_id ==None:
+    #     user_id=request.user.id
+    # current_user = User.objects.get(id = user_id)
+    # user=current_user
+    # profile = Profile.objects.filter(user=current_user)
+    profile = Profile.objects.filter(user=current_user).first()
     posts = request.user.post_set.all()
 
     return render(request, 'projects/profile.html', locals())
@@ -63,16 +64,16 @@ def vote(request,post_id):
 
 def search_results(request):
 
-    if 'profile' in request.GET and request.GET["profile"]:
-        search_term = request.GET.get("profile")
-        searched_profiles = Profile.search_by_user(search_term)
+    if 'post' in request.GET and request.GET["post"]:
+        search_term = request.GET.get("post")
+        searched_posts = Post.search(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html',{"message":message,"profile": searched_profiles})
+        return render(request, 'projects/search.html',{"message":message,"posts": searched_posts})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'search.html',{"message":message})
+        return render(request, 'projects/search.html',{"message":message})
 
 class PostList(APIView):
     def get(self, request, format=None):
