@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header"><h4>{{profile.user.username}}</h4><a href="{% url 'update' %}" class="btn btn-sm btn-success" style="float:right">Edit Profile</a></div>
                 <div class="card-body">
-                    <img src="{{ profile.photo.url}}" alt="{{profile.user.username}}" class=" img-responsive img-fluid " style="width:200px;height:200px; border-radius:50%;" >
+                    <img src="{{ profile.profile_picture.url}}" alt="{{profile.user.username}}" class=" img-responsive img-fluid " style="width:200px;height:200px; border-radius:50%;" >
 
                 </div>
                 <div class="card-text">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="card-footer">
                     <h3 class="text-center">Contact:</h3>
-                    <p>{{ profile.bio }}</p>
+                    <p>{{ profile.contact }}</p>
             </div>
             </div>
         </div>
@@ -28,6 +28,9 @@
         </div>
     </div>
     <!-- user posts -->
+    <div>
+        <h2 class="text-center text-danger" style="font-family:'Merienda One', cursive;">Your Posts</h2>
+    </div>
     <div class="row">
         
         {% for post in posts%}
