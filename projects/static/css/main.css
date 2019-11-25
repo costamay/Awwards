@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Carter+One|Merienda+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Carter+One|Merienda+One&display=swap');
+
 .dropdown:hover>.dropdown-menu {
     display: block;
   }
@@ -194,4 +197,12 @@
   }
   .hover02 figure:hover img {
       width: 350px;
+  }
+
+  .blog{
+    font-family: 'Carter One', cursive;
+  }
+
+  .post{
+    font-family: 'Merienda One', cursive;
   }
