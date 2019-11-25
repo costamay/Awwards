@@ -8,7 +8,9 @@ This is an app that allows users to like post and comment on other people posts
 
 ## Project live site
   This is the live .[ Click for the demo](https://awwwwards001.herokuapp.com/)
- ![Image](static/img/awwards)
+ ![Image](projects/static/img/award.png)
+ 
+ ![alt text](projects/static/images/awwards.png)
 ## Features
 * User can log in to application and view other peoples posts.
 * A user can rate o a post.
