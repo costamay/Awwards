@@ -1,0 +1,5 @@
+newenv
+.*pyc
+.vscode
+__pycache__
+.env
